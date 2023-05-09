@@ -1,0 +1,12 @@
+﻿@code {
+    // Demonstrates how a parent component can supply parameters
+    [Inject]
+    public NavigationManager Navigation { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        Navigation.NavigateTo(
+            $"/login?redirectUri={Uri.EscapeDataString(Navigation.Uri)}", 
+            true);
+    }
+}
